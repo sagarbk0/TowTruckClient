@@ -11,7 +11,7 @@ export default function Manager() {
   const [isManager, setIsManager] = useState(false);
 
   useEffect(() => {
-    if (cookies.get("role") === "Manager") {
+    if (cookies.get("acct_type") === "manager") {
       setIsManager(true);
     }
   }, []);

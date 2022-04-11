@@ -38,8 +38,8 @@ export default function Header() {
         <Typography
           // variant="h6"
           component="button"
-          // sx={{ display: "span" }}
-          // style={{ display: "span" }}
+        // sx={{ display: "span" }}
+        // style={{ display: "span" }}
         >
           <a style={{ color: "#993414", textDecoration: "none" }} href="/">
             Home
@@ -64,12 +64,14 @@ export default function Header() {
             <div>
               You are logged in as {fname} {lname} ({email})
               <br />
-              <Button variant="contained" onClick={logout}>
-                Sign out
-              </Button>
             </div>
           )}
         </Typography>
+        {email ?
+          <Button variant="contained" onClick={logout}>
+            Sign out
+          </Button> : <></>
+        }
       </Toolbar>
     </AppBar>
     //{" "}

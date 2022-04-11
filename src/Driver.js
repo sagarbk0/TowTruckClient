@@ -11,7 +11,7 @@ export default function Driver() {
   const [isDriver, setIsDriver] = useState(false);
 
   useEffect(() => {
-    if (cookies.get("role") === "Driver") {
+    if (cookies.get("acct_type") === "driver") {
       setIsDriver(true);
     }
   }, []);
@@ -23,22 +23,6 @@ export default function Driver() {
       {isDriver ? (
         <div>
           <h1>Driver</h1>
-          <Box
-            component="form"
-            sx={{
-              "& .MuiTextField-root": { m: 1, width: "25ch" }
-            }}
-          >
-            <TextField required label="Email ID"></TextField>
-            <br />
-            <br />
-            <TextField required type="password" label="Password"></TextField>
-            <br />
-            <br />
-            <Button variant="contained">Login</Button>
-          </Box>
-          <br />
-          <br />
           <br />
           <Button className="button" variant="outlined">
             View today's schedule

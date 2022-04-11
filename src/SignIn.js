@@ -6,7 +6,7 @@ import axios from "axios";
 import Header from "./Header";
 
 export const verifyLogin = (email, password) => {
-  const returnArray = axios
+  const promise = axios
     .post("https://sagarbk.pythonanywhere.com/find_login", {
       email: email,
       password: password
@@ -21,7 +21,7 @@ export const verifyLogin = (email, password) => {
         return [false];
       }
     });
-  return returnArray;
+  return promise;
 };
 
 export default function SignIn() {
@@ -40,20 +40,25 @@ export default function SignIn() {
   };
 
   const submitForm = () => {
-    setLoginDetails(verifyLogin(email, password));
+    verifyLogin(email, password)
+    .then(function (result) {
+      setLoginDetails(result)
+    });
   };
 
   useEffect(() => {
     console.log(loginDetails);
-    if (loginDetails.length > 0 && loginDetails[0] === false) {
-      setError(true);
-    } else {
-      cookies.set("email", email);
-      cookies.set("password", password);
-      cookies.set("fname", loginDetails[2]);
-      cookies.set("lname", loginDetails[3]);
-      cookies.set("acct_type", loginDetails[4]);
-      window.location.reload();
+    if (loginDetails.length > 0) {
+      if (loginDetails.length > 0 && loginDetails[0] === false) {
+        setError(true);
+      } else {
+        cookies.set("email", email);
+        cookies.set("password", password);
+        cookies.set("fname", loginDetails[2]);
+        cookies.set("lname", loginDetails[3]);
+        cookies.set("acct_type", loginDetails[4]);
+        window.location.reload();
+      }
     }
   }, [loginDetails]);
 
