@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import { useState, useEffect } from "react";
 import Cookies from "universal-cookie";
 import Header from "./Header";
+import { python_server } from "./settings";
 
 export default function Manager() {
   const cookies = new Cookies();

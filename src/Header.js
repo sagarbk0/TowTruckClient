@@ -1,7 +1,8 @@
 import Cookies from "universal-cookie";
 import { useState, useEffect } from "react";
-import { verifyLogin } from "./SignIn";
+import { verifyLogin } from "./login/SignIn";
 import { Box, AppBar, Button, Toolbar, Typography } from "@mui/material";
+import { python_server } from "./settings";
 
 export default function Header() {
   const cookies = new Cookies();
@@ -18,8 +19,9 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
+    console.log('verifying email');
     const stored_password = cookies.get("password");
-    if (email && !verifyLogin(email, stored_password)) setEmail(null);
+    // if (email && !verifyLogin(email, stored_password)) setEmail(null);
     setFName(cookies.get("fname"));
     setLName(cookies.get("lname"));
   }, [email]);
@@ -57,8 +59,14 @@ export default function Header() {
                 style={{ color: "lightblue", textDecoration: "none" }}
                 href="/sign_in"
               >
-                Sign in here.
-              </a>
+                Sign in
+              </a>&nbsp;or&nbsp;
+              <a
+                style={{ color: "lightblue", textDecoration: "none" }}
+                href="/sign_up"
+              >
+                sign up
+              </a>.
             </div>
           ) : (
             <div>
