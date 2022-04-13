@@ -59,7 +59,7 @@ export default function SignUp() {
                 </DialogActions>
             </Dialog>
             <Header />
-            <h1>Sign In</h1>
+            <h1>Sign Up</h1>
             <br />
             <TextField required label="Email" onChange={(e) => func.changeParameter(e, setEmail)} />
             <br />

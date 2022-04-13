@@ -2,9 +2,8 @@ import "../styles.css";
 import { useState, useEffect } from "react";
 import { Button, Dialog, TextField, MenuItem, Typography, Box, DialogTitle, DialogContent, DialogContentText, DialogActions } from "@mui/material";
 import axios from "axios";
-import Cookies from "universal-cookie";
 import Header from "../Header";
-import { python_server } from "../settings";
+import { python_server, cookies } from "../settings";
 
 // const categories = [
 //   "Accident",
@@ -41,9 +40,6 @@ export default function Service() {
   ]
 
   // const categories = ["Boom Truck", "Flatbed", "Hook and Chain", "Wheel Lift"];
-
-
-  const cookies = new Cookies();
 
   useEffect(() => {
     setEmail(cookies.get("email"));
@@ -123,9 +119,10 @@ export default function Service() {
           <Button onClick={handleClose} autoFocus>Close</Button>
         </DialogActions>
       </Dialog>
+      
+      <h1>Service Request</h1>
       {email ? (
         <div>
-          <h1>Service Request</h1>
           <Box
             component="form"
             sx={{

@@ -9,6 +9,7 @@ import Manager from "./Manager";
 import Driver from "./driver/Driver";
 import SignIn from "./login/SignIn";
 import SignUp from "./login/SignUp";
+import CustomerService from "./CustomerService";
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
@@ -21,6 +22,7 @@ ReactDOM.render(
       <Route path="driver" element={<Driver />}></Route>
       <Route path="sign_in" element={<SignIn />}></Route>
       <Route path="sign_up" element={<SignUp />}></Route>
+      <Route path="customer_service" element={<CustomerService />}></Route>
     </Routes>
   </BrowserRouter>,
   rootElement

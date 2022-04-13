@@ -43,6 +43,17 @@ export default function App() {
         >
           Driver portal
         </Button>
+        <br />
+        <br />
+        <Button
+          className="button"
+          variant="outlined"
+          sx={{color: 'orange'}}
+          href="/customer_service"
+        >
+          Customer service
+        </Button>
+        
       </div>
     </>
   );
